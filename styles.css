@@ -1,0 +1,71 @@
+:root {
+  --pixel-size: 4;
+}
+
+body {
+  background: lightblue;
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.character-div {
+  width: calc(32px * var(--pixel-size));
+  height: calc(32px * var(--pixel-size));
+  overflow: hidden;
+  /* background: lightcoral; */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.char-shadow {
+  position: absolute;
+  width: calc(32px * var(--pixel-size));
+  height: calc(32px * var(--pixel-size));
+}
+
+.pixelart {
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: pixelated;
+}
+
+.spritesheet {
+  width: calc(128px * var(--pixel-size));
+  height: calc(128px * var(--pixel-size));
+}
+
+.animated {
+  animation: charAnimation 1s infinite steps(4);
+}
+
+.right-char {
+  position: absolute;
+  top: calc(-32px * var(--pixel-size));
+}
+
+.top-char {
+  position: absolute;
+  top: calc(-64px * var(--pixel-size));
+}
+.left-char {
+  position: absolute;
+  top: calc(-96px * var(--pixel-size));
+}
+
+.down-char {
+  position: absolute;
+  top: 0;
+}
+
+@keyframes charAnimation {
+  0% {
+    transform: translate3d(0px, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
